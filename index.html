@@ -163,6 +163,27 @@
           </div>
           <!-- End Countdown -->
         </div>
+        
+<!-- Start Musik -->
+<audio id="myAudio" controls>
+  <source src="audio/Kita Bikin Romantis.mp3" type="audio/mpeg">
+  Browser Anda tidak mendukung elemen audio.
+</audio>
+
+
+<script>
+  window.addEventListener('scroll', function() {
+      var audio = document.getElementById('myAudio');
+      if (window.scrollY > 10) { // Ubah nilai 200 ke posisi scroll yang diinginkan
+          if (audio.paused) {
+              audio.play();
+          }
+      }
+  });
+</script>
+
+<!-- End Musik -->
+
         <!-- End Hero Content-->
         <!-- Begin Hero Menu -->
         <div class="hero-foot ">
@@ -511,6 +532,8 @@
       </div>
     </div>
     <!-- End Footer -->
+
+    
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
