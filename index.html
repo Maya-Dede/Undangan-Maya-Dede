@@ -520,27 +520,19 @@
 
     <!-- Start Musik -->
 
-    <div id="audioContainer">
-      <audio id="backgroundMusic" src="audio/Kita Bikin Romantis.mp3"></audio>
-  </div>
-  
+    <audio id="background-music" src="audio/Kita Bikin Romantis.mp3" autoplay loop></audio>
 
-  <script>
-      document.addEventListener('DOMContentLoaded', function() {
-    const audio = document.getElementById('backgroundMusic');
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 10) { // Ubah angka 100 sesuai dengan preferensi Anda
-            if (audio.paused) {
-                audio.play().catch(error => {
-                    console.log('Audio autoplay prevented:', error);
-                });
-            }
-        }
-    });
-});
-  </script>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('background-music');
+            // Untuk memastikan audio diputar, tambahkan event listener untuk memulai pemutaran saat user berinteraksi dengan halaman
+            document.body.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                }
+            });
+        });
+    </script>
 
 
   
