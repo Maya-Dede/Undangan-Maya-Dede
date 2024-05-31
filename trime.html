@@ -88,16 +88,69 @@
 
 
 
-<audio id="background-music" src="audio/Kita Bikin Romantis.mp3" autoplay loop></audio>
+   
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var audio = document.getElementById('background-music');
-            // Untuk memastikan audio diputar, tambahkan event listener untuk memulai pemutaran saat user berinteraksi dengan halaman
-            document.body.addEventListener('click', function() {
-                if (audio.paused) {
-                    audio.play();
-                }
-            });
+
+<div class="center-container">
+    <a href="#" id="playLink">Klik di sini untuk memutar musik</a>
+    <audio id="background-music" src="audio/Kita_Bikin_Romantis.mp3" autoplay loop></audio>
+</div>
+
+<div>
+    <a href="#home" id="playLink" class="button has-tooltip btn-cta" onClick="enableScroll()">Buka Undangan</a>
+    <audio id="background-music" " src="audio/Kita_Bikin_Romantis.mp3" autoplay loop></audio>
+  </div>
+
+<style>
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+}
+</style>
+
+
+<!-- Start Musik -->
+
+<script>
+   document.getElementById('playLink').addEventListener('click', function(event) {
+    event.preventDefault(); // Mencegah link untuk mengikuti href-nya
+    var music = document.getElementById('music');
+    music.currentTime = 0; // Setel posisi pemutaran ke awal
+    music.play(); // Putar musik
+});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var audio = document.getElementById('background-music');
+        // Untuk memastikan audio diputar, tambahkan event listener untuk memulai pemutaran saat user berinteraksi dengan halaman
+        document.body.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+            }
         });
-    </script>
+    });
+</script>
+
+<!-- End Musik -->

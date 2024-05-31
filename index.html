@@ -42,23 +42,53 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <style>
       /* Menyembunyikan kontrol audio */
-      #audioContainer {
-          display: none;
-      }
+     
   </style>
   </head>
 
   <body>
     
     <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
-          <center><main>
+          <center>
+            <main>
           <h3 class="title">Maya</h2> 
             <h3 class="title">&</h2> 
               <h3 class="title">Dede</h2> 
             <div class="simply-countdown"></div>
-            <a href="#home"  class="button has-tooltip btn-cta" data-tooltip="Add to Calendar" target="_blank" data-aos="zoom-in" onClick="enableScroll()">Buka Undangan</a>
-          </div>
-        </main></center>
+
+            <div>
+              <a href="#home" id="playLink" class="button has-tooltip btn-cta" onClick="enableScroll()">Buka Undangan</a>
+              <audio id="background-music" " src="audio/Kita_Bikin_Romantis.mp3" autoplay loop></audio>
+            </div>
+          
+          <!-- Start Musik -->
+          
+          <script>
+             document.getElementById('playLink').addEventListener('click', function(event) {
+              event.preventDefault(); // Mencegah link untuk mengikuti href-nya
+              var music = document.getElementById('music');
+              music.currentTime = 0; // Setel posisi pemutaran ke awal
+              music.play(); // Putar musik
+          });
+          </script>
+          
+          <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                  var audio = document.getElementById('background-music');
+                  // Untuk memastikan audio diputar, tambahkan event listener untuk memulai pemutaran saat user berinteraksi dengan halaman
+                  document.body.addEventListener('click', function() {
+                      if (audio.paused) {
+                          audio.play();
+                      }
+                  });
+              });
+          </script>
+          
+          <!-- End Musik -->
+        
+        </div>  
+        </main>
+      </center>
   </section>
 
     
@@ -560,21 +590,7 @@
     </div>
     <!-- End Footer -->
 
-    <!-- Start Musik -->
-
-    <audio id="myAudio" src="audio/Kita_Bikin_Romantis.mp3"></audio>
-
-    <script>
-        window.onload = function() {
-            var audio = document.getElementById('myAudio');
-            audio.play();
-        }
-    </script>
-
-
-  
-
-    <!-- End Musik -->
+    
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
